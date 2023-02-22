@@ -1,2 +1,1 @@
-# Task-manager-with-React
-Simple task manager with react
+Simple Task Manger Project
