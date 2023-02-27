@@ -9,7 +9,7 @@ function App() {
   const { getTasks } = useContext(TasksContext);
   useEffect(() => {
     getTasks();
-  }, []);
+  }, [getTasks]);
 
   return (
     <div className="App">
