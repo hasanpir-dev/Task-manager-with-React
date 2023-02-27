@@ -4,46 +4,46 @@
   align-items: center;
 }
 
-.task-create {
+.task__create {
   width: 450px;
 }
-.task-update {
+.task__update {
   width: 100%;
 }
 
-.task-form {
+.task__form {
   display: flex;
   flex-direction: column;
 }
 
-.task-label {
+.task__label {
   margin: 10px 0px;
 }
 
-.task-input {
+.task__input {
   padding: 10px;
   border: 1px solid black;
   border-radius: 10px;
 }
 
-.task-button {
-  border: 1px solid green;
+.task__button {
+  border: 1px solid seagreen;
   margin: 10px 0px;
   padding: 10px;
-  background-color: green;
+  background-color: seagreen;
   color: white;
   border-radius: 10px;
   font-size: 20px;
 }
-.update-button {
-  background-color: blueviolet;
+.update__button {
+  background-color: rebeccapurple;
 }
-.task-list {
+.task__list {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
-.task-show {
+.task__show {
   border: 1px solid green;
   border-radius: 30px;
   width: 350px;
@@ -53,26 +53,32 @@
   align-items: center;
   margin: 20px;
 }
-.task-title {
+.task__show p {
+  word-wrap: break-word;
+  width: 100%;
+  text-align: center;
+
+}
+.task__title {
   margin-bottom: 5px;
 }
-.task-edit {
+.task__edit {
   padding: 5px;
   font-size: 15px;
   width: 100px;
   border: none;
   border-radius: 30px;
-  background-color: blue;
+  background-color: royalblue;
   color: white;
   margin-right: 10px;
 }
-.task-delete {
+.task__delete {
   padding: 5px;
   font-size: 15px;
   width: 60px;
   border: none;
   border-radius: 30px;
-  background-color: red;
+  background-color: mediumvioletred;
   color: white;
   margin-right: 10px;
 }

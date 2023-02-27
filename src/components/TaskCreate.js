@@ -1,8 +1,11 @@
-import { useState } from 'react';
+import React, { useContext, useState } from "react";
+import TasksContext from "../context/task";
 
-function TaskCreate({ onCreate, task, taskformUpdate, onUpdate }) {
-  const [title, setTitle] = useState(task ? task.title : '');
-  const [taskDesc, setTaskDesc] = useState(task ? task.taskDesc : '');
+const TaskCreate = React.memo(({ task, taskformUpdate, onUpdate }) => {
+  const { createTask } = useContext(TasksContext);
+
+  const [title, setTitle] = useState(task ? task.title : "");
+  const [taskDesc, setTaskDesc] = useState(task ? task.taskDesc : "");
 
   const handleChange = (event) => {
     setTitle(event.target.value);
@@ -12,38 +15,42 @@ function TaskCreate({ onCreate, task, taskformUpdate, onUpdate }) {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (taskformUpdate) {
-      onUpdate(task.id, title, taskDesc);
+    if (title === "" || task === "") {
+      alert("Please enter a task");
     } else {
-      onCreate(title, taskDesc);
-    }
+      if (taskformUpdate) {
+        onUpdate(task.id, title, taskDesc);
+      } else {
+        createTask(title, taskDesc);
+      }
 
-    setTitle('');
-    setTaskDesc('');
+      setTitle("");
+      setTaskDesc("");
+    }
   };
 
   return (
     <div>
-      {' '}
+      {" "}
       {taskformUpdate ? (
-        <div className="task-update">
-          <h3>Edit Task!</h3>
-          <form className="task-form">
-            <label className="task-label">Edit Task title</label>
+        <div className="task__update">
+          <h3>Edit Your Task!</h3>
+          <form className="task__form">
+            <label className="task__label">Edit Title</label>
             <input
               value={title}
               onChange={handleChange}
-              className="task-input"
+              className="task__input"
             />
-            <label className="task-label">Edit Task!</label>
+            <label className="task__label">Edit Task!</label>
             <textarea
               value={taskDesc}
               onChange={handleTaskChange}
-              className="task-input"
+              className="task__input"
               rows={5}
             />
             <button
-              className="task-button update-button"
+              className="task__button update__button"
               onClick={handleSubmit}
             >
               Edit
@@ -51,23 +58,23 @@ function TaskCreate({ onCreate, task, taskformUpdate, onUpdate }) {
           </form>
         </div>
       ) : (
-        <div className="task-create">
-          <h3>Add Task!</h3>
-          <form className="task-form">
-            <label className="task-label">Title</label>
+        <div className="task__create">
+          <h3>Add task!</h3>
+          <form className="task__form">
+            <label className="task__label">Title</label>
             <input
               value={title}
               onChange={handleChange}
-              className="task-input"
+              className="task__input"
             />
-            <label className="task-label">Add Task!</label>
+            <label className="task__label">Task!</label>
             <textarea
               value={taskDesc}
               onChange={handleTaskChange}
-              className="task-input"
+              className="task__input"
               rows={5}
             />
-            <button className="task-button" onClick={handleSubmit}>
+            <button className="task__button" onClick={handleSubmit}>
               Create
             </button>
           </form>
@@ -75,6 +82,6 @@ function TaskCreate({ onCreate, task, taskformUpdate, onUpdate }) {
       )}
     </div>
   );
-}
+});
 
 export default TaskCreate;
