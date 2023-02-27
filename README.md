@@ -1,1 +1,1 @@
-Simple Task Manger Project
+Simple Task Manger Project, used Context Api with localStorage
