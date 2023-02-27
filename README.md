@@ -1,1 +1,1 @@
-Simple Task Manger Project, used Context Api with localStorage
+Simple #React Task Manger Project, used Context Api with localStorage
